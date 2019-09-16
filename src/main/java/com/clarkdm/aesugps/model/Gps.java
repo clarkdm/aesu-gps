@@ -17,6 +17,6 @@ public class Gps {
     @Id
     @GeneratedValue
     private Long id;
-    private Long latitude;
-    private Long longitude;
+    private Float latitude;
+    private Float longitude;
 }

@@ -5,8 +5,6 @@ import com.clarkdm.aesugps.model.Gps;
 import com.clarkdm.aesugps.repository.GpsRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 public class GpsService {
     private final GpsRepository gpsRepository;
@@ -16,7 +14,7 @@ public class GpsService {
     }
 
     public Gps getById(Long id) throws GpsNotFoundException {
-        Optional<Gps> byId = this.gpsRepository.findById(id);
-        return byId.orElseThrow(() -> new GpsNotFoundException("gps not fond for ID: " + id));
+        return this.gpsRepository.findById(id)
+                .orElseThrow(() -> new GpsNotFoundException("gps not fond for ID: " + id));
     }
 }

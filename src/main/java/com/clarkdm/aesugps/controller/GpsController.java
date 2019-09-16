@@ -20,9 +20,7 @@ public class GpsController {
 
     @RequestMapping(value = "/{id}", method = GET)
     public Gps getGisById(@PathVariable Long id) throws GpsNotFoundException {
-//        System.out.println("test"+5);
         Gps byId = gpsService.getById(id);
-//        System.out.println("test"+5 + byId.getLatitude());
         return byId;
     }
 
