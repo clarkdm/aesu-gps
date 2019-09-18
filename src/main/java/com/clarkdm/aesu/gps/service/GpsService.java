@@ -1,8 +1,8 @@
-package com.clarkdm.aesugps.service;
+package com.clarkdm.aesu.gps.service;
 
-import com.clarkdm.aesugps.exception.GpsNotFoundException;
-import com.clarkdm.aesugps.model.Gps;
-import com.clarkdm.aesugps.repository.GpsRepository;
+import com.clarkdm.aesu.gps.exception.GpsNotFoundException;
+import com.clarkdm.aesu.gps.model.Gps;
+import com.clarkdm.aesu.gps.repository.GpsRepository;
 import org.springframework.stereotype.Service;
 
 @Service

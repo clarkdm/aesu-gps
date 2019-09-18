@@ -1,4 +1,4 @@
-package com.clarkdm.aesugps.model;
+package com.clarkdm.aesu.gps.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

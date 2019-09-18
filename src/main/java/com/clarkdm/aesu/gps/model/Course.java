@@ -1,4 +1,4 @@
-package com.clarkdm.aesugps.model;
+package com.clarkdm.aesu.gps.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,4 +17,5 @@ public class Course {
     private Long id;
     @OneToMany
     private Set<Gps> targets;
+    private String name = "";
 }

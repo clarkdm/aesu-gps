@@ -1,4 +1,6 @@
-import {Component} from '@angular/core';
+import {Component} from "@angular/core";
+import {AesuGpsApiService} from "./core/typescript-generator/aesu-gps-api-service";
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,14 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'web';
+
+
+  constructor(private aesuGpsApiService: AesuGpsApiService) {
+  }
+
+  private test() {
+    this.aesuGpsApiService.getGisById("3").subscribe(value => {
+      console.log(value);
+    })
+  }
 }

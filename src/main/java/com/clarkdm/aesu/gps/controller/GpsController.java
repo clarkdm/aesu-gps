@@ -1,8 +1,8 @@
-package com.clarkdm.aesugps.controller;
+package com.clarkdm.aesu.gps.controller;
 
-import com.clarkdm.aesugps.exception.GpsNotFoundException;
-import com.clarkdm.aesugps.model.Gps;
-import com.clarkdm.aesugps.service.GpsService;
+import com.clarkdm.aesu.gps.exception.GpsNotFoundException;
+import com.clarkdm.aesu.gps.model.Gps;
+import com.clarkdm.aesu.gps.service.GpsService;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController
-@RequestMapping(value = "/test")
+@RequestMapping(value = "/api/test")
 public class GpsController {
     private final GpsService gpsService;
 

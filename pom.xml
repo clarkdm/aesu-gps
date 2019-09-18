@@ -66,6 +66,48 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>cz.habarta.typescript-generator</groupId>
+                <artifactId>typescript-generator-maven-plugin</artifactId>
+                <dependencies>
+                    <dependency>
+                        <groupId>cz.habarta.typescript-generator</groupId>
+                        <artifactId>typescript-generator-spring</artifactId>
+                        <version>2.16.538</version>
+                    </dependency>
+                </dependencies>
+                <version>2.16.538</version>
+                <executions>
+                    <execution>
+                        <id>generate</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <phase>validate</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <jsonLibrary>jackson2</jsonLibrary>
+                    <classPatterns>
+                        <pattern>com.clarkdm.aesu.gps.model.**</pattern>
+                        <pattern>com.clarkdm.aesu.gps.repository.**</pattern>
+                        <pattern>com.clarkdm.aesu.gps.controller.**</pattern>
+                    </classPatterns>
+                    <mapClasses>asClasses</mapClasses>
+                    <inportDeclarations>
+                        <declaration>
+                            import {Observable} from "rxjs";
+                        </declaration>
+                    </inportDeclarations>
+                    <scanSpringApplication>true</scanSpringApplication>
+                    <generateSpringApplicationClient>true</generateSpringApplicationClient>
+                    <outputFileType>implementationFile</outputFileType>
+                    <restResponseType>Observable&lt;R&gt;</restResponseType>
+                    <classesImplementingInterfaces>false</classesImplementingInterfaces>
+                    <generateSpringApplicationInterface>true</generateSpringApplicationInterface>
+                    <outputKind>module</outputKind>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 

@@ -1,4 +1,4 @@
-package com.clarkdm.aesugps.model;
+package com.clarkdm.aesu.gps.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,14 +7,18 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "team")
+@Table(name = "run")
 @Data
 @NoArgsConstructor
-public class Team {
+public class Run {
 
     @Id
     @GeneratedValue
     private Long id;
+    @OneToOne
+    private Course course;
+    @OneToOne
+    private Team team;
     @OneToMany
-    private Set<Run> runs;
+    private Set<Guess> guessSet;
 }

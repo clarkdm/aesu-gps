@@ -1,4 +1,4 @@
-package com.clarkdm.aesugps;
+package com.clarkdm.aesu.gps;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

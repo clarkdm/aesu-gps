@@ -1,7 +1,7 @@
-package com.clarkdm.aesugps.repository;
+package com.clarkdm.aesu.gps.repository;
 
 
-import com.clarkdm.aesugps.model.Team;
+import com.clarkdm.aesu.gps.model.Team;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
