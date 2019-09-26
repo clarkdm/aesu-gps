@@ -15,7 +15,7 @@ public class Team {
     @Id
     @GeneratedValue
     private Long id;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<Run> runs;
     private String name = "";
 }

@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Gps} from "../typescript-generator/typescript-generator-model";
 
 @Component({
   selector: 'app-gps',
@@ -7,8 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class GpsComponent implements OnInit {
 
-  @Input() lat: number;
-  @Input() lon: number;
+  @Input() gps: Gps;
 
   constructor() {
   }

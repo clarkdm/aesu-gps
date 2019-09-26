@@ -15,9 +15,9 @@ public class Guess {
     @Id
     @GeneratedValue
     private Long id;
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     private Gps guess;
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     private Gps target;
     private Date timeStamp;
 }

@@ -1,3 +1,124 @@
-<p>
-  admin works!
-</p>
+<mat-card>
+  <p>
+    admin works!
+  </p>
+  <mat-tab-group>
+    <mat-tab label="Stuf">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Test GPS
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <app-get-gps></app-get-gps>
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Courses
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div>
+            <form [formGroup]="courseForm">
+
+              <mat-list *ngIf="courses">
+                <mat-list-item *ngFor="let course of courses ">
+                  {{course?.id}}: {{course?.name}}
+                  <button (click)="deleteCourseById(course.id)" color="warn" mat-raised-button>delete</button>
+                </mat-list-item>
+              </mat-list>
+              <mat-form-field>
+                <input formControlName="name" matInput placeholder="Course Name">
+              </mat-form-field>
+              <button (click)="newCourse()" color="primary" mat-raised-button>New Course</button>
+            </form>
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Teams
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div>
+            <form [formGroup]="teamForm">
+
+              <mat-list *ngIf="teams">
+                <mat-list-item *ngFor="let team of teams ">
+                  {{team?.id}}: {{team?.name}}
+                  <button (click)="deleteTeamById(team.id)" color="warn" mat-raised-button>delete</button>
+                </mat-list-item>
+              </mat-list>
+
+              <mat-form-field>
+                <input formControlName="name" matInput placeholder="Team Name">
+              </mat-form-field>
+              <button (click)="newTeam()" color="primary" mat-raised-button>New Team</button>
+            </form>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Runs
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div>
+            <form [formGroup]="runForm">
+
+              <mat-list *ngIf="runs">
+                <mat-list-item *ngFor="let run of runs ">
+                  {{run.id}}: team: {{run?.team?.name}} : Courses:{{run?.course?.name}} ::
+                  <button (click)="deleteRunById(run.id)" color="warn" mat-raised-button>delete</button>
+                </mat-list-item>
+              </mat-list>
+              <mat-form-field>
+                <mat-label>Team</mat-label>
+                <mat-select formControlName="runTeam">
+                  <mat-option *ngFor="let team of teams" [value]="team">
+                    {{team?.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Courses</mat-label>
+
+                <mat-select formControlName="runCourse">
+                  <mat-option *ngFor="let course of courses" [value]="course">
+                    {{course?.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <button (click)="newRun()" color="primary" mat-raised-button>New Run</button>
+            </form>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-tab>
+
+    <mat-tab label="Courses">
+      <div>
+        <form [formGroup]="courseEditForm">
+          <mat-form-field>
+            <mat-label>Courses</mat-label>
+            <mat-select formControlName="editCourse">
+              <mat-option *ngFor="let course of courses" [value]="course">
+                {{course?.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button (click)="editCourse()" color="primary" mat-raised-button>Edit</button>
+
+        </form>
+      </div>
+      <div>
+        <app-edit-course *ngIf="coursesToEdit" [course]="coursesToEdit"></app-edit-course>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card>

@@ -1,5 +1,5 @@
-<div CLASS="well">
-  <span *ngIf="lat">lat: {{lat}}</span>
+<div *ngIf="gps" CLASS="well">
+  <span *ngIf="gps.latitude">lat: {{gps.latitude}}</span>
   <br>
-  <span *ngIf="lon">lon: {{lon}}</span>
+  <span *ngIf="gps.longitude">lon: {{gps.longitude}}</span>
 </div>

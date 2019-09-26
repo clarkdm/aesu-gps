@@ -15,7 +15,8 @@ public class Course {
     @Id
     @GeneratedValue
     private Long id;
-    @OneToMany
+
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<Gps> targets;
     private String name = "";
 }

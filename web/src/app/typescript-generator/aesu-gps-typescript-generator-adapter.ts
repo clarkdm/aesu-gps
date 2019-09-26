@@ -5,6 +5,6 @@ import {Injectable} from "@angular/core";
 @Injectable()
 export class AesuGpsTypescriptGeneratorHttrAdapter extends TypescriptGeneratorHttpAdapter {
   constructor(httpClient: HttpClient) {
-    super(httpClient, "api/")
+    super(httpClient, "")
   }
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController
-@RequestMapping(value = "/api/test")
+@RequestMapping(value = "/api/gps")
 public class GpsController {
     private final GpsService gpsService;
 

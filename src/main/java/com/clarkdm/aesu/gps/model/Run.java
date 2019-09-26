@@ -15,10 +15,10 @@ public class Run {
     @Id
     @GeneratedValue
     private Long id;
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     private Course course;
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     private Team team;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<Guess> guessSet;
 }

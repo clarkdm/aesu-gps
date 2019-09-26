@@ -1,0 +1,5 @@
+<div class="row">
+  <app-gps [gps]="gps"></app-gps>
+  <button (click)="getGps()" color="primary" mat-raised-button>Update</button>
+  <button (click)="saveGps()" [disabled]="!gps.latitude" color="accent" mat-raised-button>save</button>
+</div>

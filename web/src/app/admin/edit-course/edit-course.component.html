@@ -1,0 +1,11 @@
+<p>
+  course: {{course.name}}
+</p>
+<div *ngIf="course">
+  <mat-list>
+    <mat-list-item *ngFor="let gps of course.targets ">
+      <app-gps [gps]="gps"></app-gps>
+    </mat-list-item>
+  </mat-list>
+  <app-get-gps (newGps)="getGps($event)"></app-get-gps>
+</div>
