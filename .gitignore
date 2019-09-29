@@ -75,3 +75,5 @@ Thumbs.db
 
 
 /web/node_modules/
+*.crt
+*.key
