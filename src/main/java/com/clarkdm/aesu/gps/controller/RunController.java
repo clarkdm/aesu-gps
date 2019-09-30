@@ -38,8 +38,13 @@ public class RunController {
         return runService.getAllRun();
     }
 
-    @RequestMapping(value = "", method = POST)
-    public Run saveRun(@RequestBody Run run) {
+    @RequestMapping(value = "/role/{role}", method = GET)
+    public List<Run> getAllRun(@PathVariable String role) {
+        return runService.getAllByTeamRole(role);
+    }
+
+    @RequestMapping(value = "/save", method = POST)
+    public Run saveRun(@RequestBody Run run) throws NotFoundException {
         return runService.saveRun(run);
     }
 

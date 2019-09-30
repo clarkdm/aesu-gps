@@ -15,4 +15,6 @@ public interface RunRepository extends CrudRepository<Run, Long> {
     void deleteById(Long id);
 
     List<Run> findAll();
+
+    List<Run> findAllByTeam_Role(String role);
 }

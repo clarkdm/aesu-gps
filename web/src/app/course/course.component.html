@@ -1,3 +1,6 @@
-<p>
-  course works!
-</p>
+<span *ngIf="run">
+<div *ngFor="let target of run.course.targets">
+  <app-gps [gps]="target"></app-gps>
+  <mat-divider></mat-divider>
+</div>
+</span>

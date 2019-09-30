@@ -27,7 +27,8 @@ export class AdminComponent implements OnInit {
       name: ''
     });
     this.teamForm = this.formBuilder.group({
-      name: ''
+      name: '',
+      role: ''
     });
     this.runForm = new FormGroup({
       runCourse: new FormControl(),
@@ -67,6 +68,8 @@ export class AdminComponent implements OnInit {
   newTeam = () => {
     let team = new Team();
     team.name = this.teamForm.getRawValue().name;
+    team.role = this.teamForm.getRawValue().role;
+    console.log(this.teamForm.getRawValue());
     this.aesuGpsApiService.saveTeam(team).subscribe(value => {
       this.getAllTeam();
     })
@@ -85,6 +88,8 @@ export class AdminComponent implements OnInit {
   newRun = () => {
     let run = new Run();
     // console.log(this.runForm.getRawValue());
+    run.id = null;
+    run.guessList = [];
     run.team = this.runForm.getRawValue().runTeam;
     run.course = this.runForm.getRawValue().runCourse;
     this.aesuGpsApiService.saveRun(run).subscribe(value => {

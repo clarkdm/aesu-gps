@@ -15,4 +15,6 @@ public interface TeamRepository extends CrudRepository<Team, Long> {
     void deleteById(Long id);
 
     List<Team> findAll();
+
+    Team findByRole(String role);
 }

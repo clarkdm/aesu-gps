@@ -20,6 +20,8 @@ import {MaterialModuleModule} from "./material-module/material-module.module";
 import {NavBarComponent} from "./nav-bar/nav-bar.component";
 import {GetGpsComponent} from './get-gps/get-gps.component';
 import {EditCourseComponent} from './admin/edit-course/edit-course.component';
+import {AgmCoreModule} from '@agm/core';
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -43,6 +45,9 @@ import {EditCourseComponent} from './admin/edit-course/edit-course.component';
     BrowserAnimationsModule,
     MaterialModuleModule,
     ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: environment.googleMapsKey
+    }),
   ],
   providers: [
     AesuGpsApiService,

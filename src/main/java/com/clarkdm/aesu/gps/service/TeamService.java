@@ -22,10 +22,15 @@ public class TeamService {
 
     public List<Team> getAllTeam() {
         return this.teamRepository.findAll();
+
     }
 
     public Team saveTeam(Team team) {
         return this.teamRepository.save(team);
+    }
+
+    public Team findByRole(String role) {
+        return this.teamRepository.findByRole(role);
     }
 
     public void deleteById(Long id) {

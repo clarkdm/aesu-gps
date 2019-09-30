@@ -24,13 +24,17 @@ public class TeamController {
 
     @RequestMapping(value = "/{id}", method = GET)
     public Team getTeamById(@PathVariable Long id) throws NotFoundException {
-        Team byId = teamService.getById(id);
-        return byId;
+        return teamService.getById(id);
     }
 
     @RequestMapping(value = "/{id}", method = POST)
     public void deleteById(@PathVariable Long id) {
         teamService.deleteById(id);
+    }
+
+    @RequestMapping(value = "/role/{role}", method = GET)
+    public Team findByRole(@PathVariable String role) {
+        return teamService.findByRole(role);
     }
 
     @RequestMapping(value = "", method = GET)

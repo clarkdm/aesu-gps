@@ -19,7 +19,7 @@ import {AppService} from "../app.service";
               <mat-icon>security</mat-icon>
               <span>Admin</span>
           </button>
-          <button mat-menu-item routerLink="/login" *ngIf="app.authenticated">
+          <button mat-menu-item routerLink="/login" *ngIf="!app.authenticated">
               <mat-icon>account_circle</mat-icon>
               <span>login</span>
           </button>

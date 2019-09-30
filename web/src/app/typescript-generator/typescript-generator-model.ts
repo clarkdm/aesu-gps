@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
-// Generated using typescript-generator version 2.16.538 on 2019-09-25 21:57:09.
+// Generated using typescript-generator version 2.16.538 on 2019-10-01 00:12:47.
 
 import {Observable} from "rxjs";
 
@@ -27,13 +27,14 @@ export class Run {
   id: number;
   course: Course;
   team: Team;
-  guessSet: Guess[];
+  guessList: Guess[];
 }
 
 export class Team {
   id: number;
   runs: Run[];
   name: string;
+  role: string;
 }
 
 export interface CourseRepository extends CrudRepository<Course, number> {
@@ -121,10 +122,16 @@ export interface RestApplication {
    * HTTP GET /api/run
    * Java method: com.clarkdm.aesu.gps.controller.RunController.getAllRun
    */
-  getAllRun(): RestResponse<Run[]>;
+  getAllRun$GET$api_run(): RestResponse<Run[]>;
 
   /**
-   * HTTP POST /api/run
+   * HTTP GET /api/run/role/{role}
+   * Java method: com.clarkdm.aesu.gps.controller.RunController.getAllRun
+   */
+  getAllRun$GET$api_run_role_role(role: string): RestResponse<Run[]>;
+
+  /**
+   * HTTP POST /api/run/save
    * Java method: com.clarkdm.aesu.gps.controller.RunController.saveRun
    */
   saveRun(run: Run): RestResponse<Run>;
@@ -152,6 +159,12 @@ export interface RestApplication {
    * Java method: com.clarkdm.aesu.gps.controller.TeamController.saveTeam
    */
   saveTeam(team: Team): RestResponse<Team>;
+
+  /**
+   * HTTP GET /api/team/role/{role}
+   * Java method: com.clarkdm.aesu.gps.controller.TeamController.findByRole
+   */
+  findByRole(role: string): RestResponse<Team>;
 
   /**
    * HTTP POST /api/team/{id}
@@ -258,16 +271,24 @@ export class RestApplicationClient implements RestApplication {
    * HTTP GET /api/run
    * Java method: com.clarkdm.aesu.gps.controller.RunController.getAllRun
    */
-  getAllRun(): RestResponse<Run[]> {
+  getAllRun$GET$api_run(): RestResponse<Run[]> {
     return this.httpClient.request({method: "GET", url: uriEncoding`api/run`});
   }
 
   /**
-   * HTTP POST /api/run
+   * HTTP GET /api/run/role/{role}
+   * Java method: com.clarkdm.aesu.gps.controller.RunController.getAllRun
+   */
+  getAllRun$GET$api_run_role_role(role: string): RestResponse<Run[]> {
+    return this.httpClient.request({method: "GET", url: uriEncoding`api/run/role/${role}`});
+  }
+
+  /**
+   * HTTP POST /api/run/save
    * Java method: com.clarkdm.aesu.gps.controller.RunController.saveRun
    */
   saveRun(run: Run): RestResponse<Run> {
-    return this.httpClient.request({method: "POST", url: uriEncoding`api/run`, data: run});
+    return this.httpClient.request({method: "POST", url: uriEncoding`api/run/save`, data: run});
   }
 
   /**
@@ -300,6 +321,14 @@ export class RestApplicationClient implements RestApplication {
    */
   saveTeam(team: Team): RestResponse<Team> {
     return this.httpClient.request({method: "POST", url: uriEncoding`api/team`, data: team});
+  }
+
+  /**
+   * HTTP GET /api/team/role/{role}
+   * Java method: com.clarkdm.aesu.gps.controller.TeamController.findByRole
+   */
+  findByRole(role: string): RestResponse<Team> {
+    return this.httpClient.request({method: "GET", url: uriEncoding`api/team/role/${role}`});
   }
 
   /**

@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Run} from "../typescript-generator/typescript-generator-model";
 
 @Component({
   selector: 'app-course',
@@ -6,6 +7,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./course.component.less']
 })
 export class CourseComponent implements OnInit {
+  @Input() run: Run;
 
   constructor() {
   }
