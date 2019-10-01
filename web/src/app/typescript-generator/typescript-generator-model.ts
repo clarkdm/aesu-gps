@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
-// Generated using typescript-generator version 2.16.538 on 2019-10-01 00:12:47.
+// Generated using typescript-generator version 2.16.538 on 2019-10-01 00:16:46.
 
 import {Observable} from "rxjs";
 
@@ -122,13 +122,13 @@ export interface RestApplication {
    * HTTP GET /api/run
    * Java method: com.clarkdm.aesu.gps.controller.RunController.getAllRun
    */
-  getAllRun$GET$api_run(): RestResponse<Run[]>;
+  getAllRun(): RestResponse<Run[]>;
 
   /**
    * HTTP GET /api/run/role/{role}
-   * Java method: com.clarkdm.aesu.gps.controller.RunController.getAllRun
+   * Java method: com.clarkdm.aesu.gps.controller.RunController.getAllByTeamRole
    */
-  getAllRun$GET$api_run_role_role(role: string): RestResponse<Run[]>;
+  getAllByTeamRole(role: string): RestResponse<Run[]>;
 
   /**
    * HTTP POST /api/run/save
@@ -271,15 +271,15 @@ export class RestApplicationClient implements RestApplication {
    * HTTP GET /api/run
    * Java method: com.clarkdm.aesu.gps.controller.RunController.getAllRun
    */
-  getAllRun$GET$api_run(): RestResponse<Run[]> {
+  getAllRun(): RestResponse<Run[]> {
     return this.httpClient.request({method: "GET", url: uriEncoding`api/run`});
   }
 
   /**
    * HTTP GET /api/run/role/{role}
-   * Java method: com.clarkdm.aesu.gps.controller.RunController.getAllRun
+   * Java method: com.clarkdm.aesu.gps.controller.RunController.getAllByTeamRole
    */
-  getAllRun$GET$api_run_role_role(role: string): RestResponse<Run[]> {
+  getAllByTeamRole(role: string): RestResponse<Run[]> {
     return this.httpClient.request({method: "GET", url: uriEncoding`api/run/role/${role}`});
   }
 

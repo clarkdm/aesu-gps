@@ -22,6 +22,7 @@ import {GetGpsComponent} from './get-gps/get-gps.component';
 import {EditCourseComponent} from './admin/edit-course/edit-course.component';
 import {AgmCoreModule} from '@agm/core';
 import {environment} from "../environments/environment";
+import {GuessComponent} from './guess/guess.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {environment} from "../environments/environment";
     NavBarComponent,
     GetGpsComponent,
     EditCourseComponent,
+    GuessComponent,
   ],
   imports: [
     AppRoutingModule,

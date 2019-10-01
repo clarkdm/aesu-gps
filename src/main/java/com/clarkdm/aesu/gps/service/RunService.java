@@ -1,5 +1,6 @@
 package com.clarkdm.aesu.gps.service;
 
+import com.clarkdm.aesu.gps.model.Guess;
 import com.clarkdm.aesu.gps.model.Run;
 import com.clarkdm.aesu.gps.repository.RunRepository;
 import com.clarkdm.aesu.gps.repository.TeamRepository;
@@ -7,6 +8,7 @@ import javassist.NotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class RunService {
@@ -23,19 +25,21 @@ public class RunService {
                 .orElseThrow(() -> new NotFoundException("gps not fond for ID: " + id));
     }
 
-    public List<Run> getAllByTeamRole(String rolt) {
-        return this.runRepository.findAllByTeam_Role(rolt);
+    public List<Run> getAllByTeamRole(String role) {
+        return this.runRepository.findAllByTeam_Role(role);
     }
 
     public List<Run> getAllRun() {
         return this.runRepository.findAll();
     }
 
-    public Run saveRun(Run run) throws NotFoundException {
-//        Team team = teamRepository.findById(teamId).orElseThrow(() -> new NotFoundException(""));
-
+    public Run saveRun(Run run) {
+        run.setGuessList(run.getCourse().getTargets().stream().map(gps -> {
+            Guess guess = new Guess();
+            guess.setTarget(gps);
+            return guess;
+        }).collect(Collectors.toList()));
         return this.runRepository.save(run);
-
     }
 
     public void deleteById(Long id) {

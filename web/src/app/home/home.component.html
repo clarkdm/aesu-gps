@@ -2,12 +2,12 @@
   Hi {{user?.name}}, {{user?.authorities[0].authority}}
 </p>
 
-<mat-card *ngIf="team && !run">
+<mat-card *ngIf="runs && !run">
   <form [formGroup]="selectRun">
     <mat-form-field>
       <mat-label>Courses</mat-label>
       <mat-select formControlName="run">
-        <mat-option *ngFor="let run of team.runs" [value]="run">
+        <mat-option *ngFor="let run of runs" [value]="run">
           {{run?.course.name}}
         </mat-option>
       </mat-select>
@@ -17,6 +17,6 @@
   <app-run></app-run>
 </mat-card>
 
-<mat-card *ngIf="team && !run">
+<mat-card *ngIf="runs && run">
   <app-course [run]="run"></app-course>
 </mat-card>

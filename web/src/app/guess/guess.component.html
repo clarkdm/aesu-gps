@@ -1,0 +1,18 @@
+<div>
+
+  Location {{index + 1}}
+
+  <div class="well row" style="margin-bottom: 10px">
+       <span *ngIf="guess.guess" class="col-6">
+         <label>target</label> <app-gps [gps]="guess.target"></app-gps>
+       </span>
+    <span *ngIf="guess.guess" class="col-6">
+      <label>guess</label> <app-gps [gps]="guess.guess"></app-gps>
+      </span>
+  </div>
+  <div>
+    <label>Current location</label>
+    <app-get-gps (newGps)="getGuess($event)"></app-get-gps>
+  </div>
+</div>
+

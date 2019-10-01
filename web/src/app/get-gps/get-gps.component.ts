@@ -8,7 +8,7 @@ import {Gps} from "../typescript-generator/typescript-generator-model";
 })
 export class GetGpsComponent implements OnInit {
   gps = new Gps();
-
+  accuracy: number;
 
   @Output() newGps = new EventEmitter<Gps>();
 
@@ -26,6 +26,7 @@ export class GetGpsComponent implements OnInit {
         position => {
           this.gps.longitude = position.coords.longitude;
           this.gps.latitude = position.coords.latitude;
+          this.accuracy = position.coords.accuracy;
           console.log(position.coords)
         },
         error => {

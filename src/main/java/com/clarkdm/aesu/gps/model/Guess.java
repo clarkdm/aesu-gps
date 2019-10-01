@@ -15,9 +15,9 @@ public class Guess {
     @Id
     @GeneratedValue
     private Long id;
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private Gps guess;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private Gps target;
-    private Date timeStamp;
+    private Date timeStamp = new Date();
 }

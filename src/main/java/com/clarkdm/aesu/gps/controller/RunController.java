@@ -39,7 +39,7 @@ public class RunController {
     }
 
     @RequestMapping(value = "/role/{role}", method = GET)
-    public List<Run> getAllRun(@PathVariable String role) {
+    public List<Run> getAllByTeamRole(@PathVariable String role) {
         return runService.getAllByTeamRole(role);
     }
 

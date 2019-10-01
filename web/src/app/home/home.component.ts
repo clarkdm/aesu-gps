@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AesuGpsApiService} from "../typescript-generator/aesu-gps-api-service";
 import {FormControl, FormGroup} from "@angular/forms";
-import {Run, Team} from "../typescript-generator/typescript-generator-model";
+import {Run} from "../typescript-generator/typescript-generator-model";
 
 @Component({
   templateUrl: './home.component.html'
@@ -9,7 +9,7 @@ import {Run, Team} from "../typescript-generator/typescript-generator-model";
 export class HomeComponent implements OnInit {
 
   user;
-  team: Team;
+  runs: Run[];
   run: Run;
   title = 'Demo';
   selectRun: FormGroup;
@@ -29,8 +29,8 @@ export class HomeComponent implements OnInit {
   }
 
   getRuns(role: string): void {
-    this.aesuGpsApiService.getAllRun$GET$api_run_role_role(role).subscribe(value => {
-      console.log(value);
+    this.aesuGpsApiService.getAllByTeamRole(role).subscribe(value => {
+      this.runs = value;
     });
   }
 
