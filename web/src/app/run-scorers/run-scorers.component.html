@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-title>
+    Scorers
+  </mat-card-title>
+
+  <mat-card-content>
+
+    <ul *ngIf="runs">
+      <li *ngFor="let run of runs" style="margin-bottom: 25px">
+        <h4>{{run.team.name}} : Total Scorer is <span style="color: coral"><b>{{getScorer(run)}}</b></span></h4>
+        <ul>
+          <li *ngFor="let guess of run.guessList">
+            {{getGpsDifference(guess.guess, guess.target) }}
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+  </mat-card-content>
+</mat-card>
+

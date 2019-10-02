@@ -10,9 +10,9 @@
     </parent>
     <groupId>com.clarkdm</groupId>
     <artifactId>aesu-gps</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>aesu-gps</name>
-    <description>Demo project for Spring Boot</description>
+    <description>aesu-gps</description>
 
     <properties>
         <java.version>8</java.version>
@@ -109,11 +109,11 @@
                         <pattern>com.clarkdm.aesu.gps.controller.**</pattern>
                     </classPatterns>
                     <mapClasses>asClasses</mapClasses>
-                    <inportDeclarations>
+                    <importDeclarations>
                         <declaration>
                             import {Observable} from "rxjs";
                         </declaration>
-                    </inportDeclarations>
+                    </importDeclarations>
                     <scanSpringApplication>true</scanSpringApplication>
                     <generateSpringApplicationClient>true</generateSpringApplicationClient>
                     <outputFileType>implementationFile</outputFileType>

@@ -23,6 +23,7 @@ import {EditCourseComponent} from './admin/edit-course/edit-course.component';
 import {AgmCoreModule} from '@agm/core';
 import {environment} from "../environments/environment";
 import {GuessComponent} from './guess/guess.component';
+import {RunScorersComponent} from './run-scorers/run-scorers.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {GuessComponent} from './guess/guess.component';
     GetGpsComponent,
     EditCourseComponent,
     GuessComponent,
+    RunScorersComponent,
   ],
   imports: [
     AppRoutingModule,
