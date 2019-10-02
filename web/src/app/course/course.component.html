@@ -1,10 +1,19 @@
 <span *ngIf="run">
-<div *ngFor="let guess of run.guessList; let i = index">
 
+<mat-accordion>
+
+<div *ngFor="let guess of run.guessList; let i = index">
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+            <mat-panel-title>
+               Location {{i + 1}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
 <app-guess [guess]="guess" [index]="i"></app-guess>
 
 
 
-  <mat-divider></mat-divider>
+   </mat-expansion-panel>
 </div>
+</mat-accordion>
 </span>
