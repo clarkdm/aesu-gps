@@ -3,8 +3,10 @@
 </p>
 <div *ngIf="course">
   <mat-list>
-    <mat-list-item *ngFor="let gps of course.targets ">
+    <mat-list-item *ngFor="let gps of course.targets; let i = index ">
       <app-gps [gps]="gps"></app-gps>
+      <button (click)="removeGps(i)" color="primary" mat-raised-button>Edit</button>
+
     </mat-list-item>
   </mat-list>
   <app-get-gps (newGps)="getGps($event)"></app-get-gps>

@@ -15,7 +15,7 @@ export class AdminComponent implements OnInit {
   runs: Run[];
   coursesToEdit: Course;
 
-
+  admin = false;
   courseForm: FormGroup;
   courseEditForm: FormGroup;
   teamForm: FormGroup;
@@ -23,6 +23,7 @@ export class AdminComponent implements OnInit {
 
   constructor(private aesuGpsApiService: AesuGpsApiService,
               private formBuilder: FormBuilder) {
+
     this.courseForm = this.formBuilder.group({
       name: ''
     });
@@ -42,6 +43,12 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.aesuGpsApiService.user().subscribe(value => {
+      console.log(value.authorities[0].authority);
+      if (value.authorities[0].authority == "ROLE_admin") {
+        this.admin = true;
+      }
+    });
     this.getAllCourse();
     this.getAllTeam();
     this.getAllRun();

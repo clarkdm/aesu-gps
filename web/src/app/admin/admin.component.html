@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card *ngIf="admin">
   <p>
     admin works!
   </p>
@@ -133,6 +133,7 @@
         <app-edit-course *ngIf="coursesToEdit" [course]="coursesToEdit"></app-edit-course>
       </div>
     </mat-tab>
+
     <mat-tab label="Scorers">
       <app-run-scorers></app-run-scorers>
     </mat-tab>

@@ -5,16 +5,28 @@
 
   <mat-card-content>
 
-    <ul *ngIf="runs">
-      <li *ngFor="let run of runs" style="margin-bottom: 25px">
-        <h4>{{run.team.name}} : Total Scorer is <span style="color: coral"><b>{{getScorer(run)}}</b></span></h4>
-        <ul>
-          <li *ngFor="let guess of run.guessList">
-            {{getGpsDifference(guess.guess, guess.target) }}
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <div *ngIf="runs">
+      <mat-accordion>
+        <div *ngFor="let run of runs" style="margin-bottom: 25px">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+
+                <h4>{{run.team.name}} : Total Scorer is <span style="color: coral"><b>{{getScorer(run)}}</b></span></h4>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <ul>
+              <li *ngFor="let guess of run.guessList">
+                {{getGpsDifference(guess.guess, guess.target) }}
+              </li>
+            </ul>
+          </mat-expansion-panel>
+
+        </div>
+      </mat-accordion>
+
+    </div>
 
   </mat-card-content>
 </mat-card>

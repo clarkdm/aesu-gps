@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
 import {Gps, Guess} from "../typescript-generator/typescript-generator-model";
 import {AesuGpsApiService} from "../typescript-generator/aesu-gps-api-service";
+import {Component, Input, OnInit} from "@angular/core";
 
 @Component({
   selector: 'app-guess',

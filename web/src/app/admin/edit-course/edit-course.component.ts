@@ -20,6 +20,9 @@ export class EditCourseComponent implements OnInit {
   getGps = ($event: Gps) => {
     this.course.targets.push($event);
   };
+  removeGps = (index: number) => {
+    this.course.targets.splice(index, 1)
+  };
   saveCourse = () => {
     this.aesuGpsApiService.saveCourse(this.course).subscribe(value => value);
 
